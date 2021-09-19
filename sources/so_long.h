@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:26:58 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/18 20:17:21 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/19 21:38:14 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_sl
 	int		m;
 	int		player;
 	t_pos	p;
+	int		pdir;
+	int		pexit;
 	int		col;
 	t_pos	*c;
 	int		exit;
@@ -60,6 +62,7 @@ typedef struct s_sl
 	int		a;
 	int		x;
 	int		y;
+	t_img	*obj;
 }t_sl;
 
 typedef enum e_error
@@ -106,5 +109,6 @@ t_img	*new_image(t_sl *sl, int x, int y);
 void	free_img(t_sl *sl, t_img *img);
 int		get_pixel(t_img *img, int x, int y);
 void	background(t_sl *sl);
+void	objects(t_sl *sl);
 
 #endif
