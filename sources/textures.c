@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 16:33:57 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/17 02:38:48 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/19 01:56:20 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ int	textures(t_sl *sl)
 	int	i;
 
 	i = 0;
-	sl->tp = (char **)malloc(sizeof(char *) * 1);
+	sl->tp = (char **)malloc(sizeof(char *) * 7);
 	if (sl->tp == NULL)
 		return (sl->error = BASIC_ERROR);
-	sl->tex = (t_img *)malloc(sizeof(t_img) * 1);
+	sl->tex = (t_img *)malloc(sizeof(t_img) * 7);
 	if (sl->tex == NULL)
 		return (sl->error = BASIC_ERROR);
-	while (i < 1)
+	while (i < 7)
 	{
 		if (get_path(sl, i) != SUCCESS)
 			return (sl->error);

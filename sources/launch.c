@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 19:15:36 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/17 02:35:10 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:10:17 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ static int	run_window(t_sl *sl)
 
 int	launch(t_sl *sl)
 {
-	int		x;
-	int		y;
-
 	sl->ptr = mlx_init();
 	if (sl->ptr == NULL)
 		return (MLX_ERROR);
@@ -34,13 +31,18 @@ int	launch(t_sl *sl)
 /*	mlx_get_screen_size(sl->ptr, &x, &y);
 	if (sl->w > x)
 		sl->w = x;
-	if (sl->h > y)
+	if (sl->h > y
 		sl->h = y;*/
-	x = ft_strlen(sl->map[1]) * 64;
-	y = sl->dim.y * 64;
-	sl->win = mlx_new_window(sl->ptr, x, y, "so_long");
+	sl->a = 64;
+	sl->w = ft_strlen(sl->map[1]) * sl->a;
+	sl->h = sl->dim.y * sl->a;
+	sl->win = mlx_new_window(sl->ptr, sl->w, sl->h, "so_long");
 	if (sl->win == NULL)
 		return (MLX_ERROR);
+	sl->img = new_image(sl, sl->w, sl->h);
+	if (sl->img == NULL)
+		return (sl->error = IMG_ERROR);
+	background(sl);
 	mlx_hook(sl->win, 33, 1L << 0, ft_close, sl);
 /*	mlx_hook(sl->win, 2, 1L << 0, keypress, sl);
 	mlx_hook(sl->win, 3, 1L << 1, keyrelease, sl);*/

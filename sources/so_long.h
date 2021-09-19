@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:26:58 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/17 04:19:19 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/18 20:17:21 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ typedef struct s_sl
 	t_img	*tex;
 	char	**tp;
 	t_img	*img;
+	int		w;
+	int		h;
+	int		a;
+	int		x;
+	int		y;
 }t_sl;
 
 typedef enum e_error
@@ -97,5 +102,9 @@ int		textures(t_sl *sl);
 int		ft_close(int keycode, t_sl sl);
 int		display(t_sl *sl);
 void	ft_pixel_put(t_img *img, int x, int y, int color);
+t_img	*new_image(t_sl *sl, int x, int y);
+void	free_img(t_sl *sl, t_img *img);
+int		get_pixel(t_img *img, int x, int y);
+void	background(t_sl *sl);
 
 #endif
