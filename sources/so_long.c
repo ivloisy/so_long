@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:34:18 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/15 19:06:34 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/20 03:36:28 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ static int	get_info(int fd, t_sl *sl)
 	while (ret > 0 && sl->error == SUCCESS)
 	{
 		ret = get_next_line(fd, &line);
+		if (ret < 0)
+			break ;
 		sl->error = add_line(line, sl);
 		if (ret <= 0 || sl->error != SUCCESS)
 			break ;

@@ -6,13 +6,13 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 21:15:51 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/19 21:39:22 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/19 22:54:40 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	draw_col(t_sl *sl, int a, int b)
+static void	draw_obj(t_sl *sl, int a, int b)
 {
 	int	color;
 
@@ -25,17 +25,12 @@ static void	draw_col(t_sl *sl, int a, int b)
 			color = get_pixel(&sl->tex[7], a / (sl->a / sl->tex[7].w), b
 					/ (sl->a / sl->tex[7].h));
 		if (get_pixel(&sl->tex[sl->pdir], a
-					/ (sl->a / sl->tex[sl->pdir].w), b
-					/ (sl->a / sl->tex[sl->pdir].h)) != 0)
+				/ (sl->a / sl->tex[sl->pdir].w), b
+				/ (sl->a / sl->tex[sl->pdir].h)) != 0)
 			color = get_pixel(&sl->tex[sl->pdir], a
 					/ (sl->a / sl->tex[sl->pdir].w), b
 					/ (sl->a / sl->tex[sl->pdir].h));
 	}
-/*	else
-	{
-		color = draw_bath(sl, a, b);
-		color = draw_exit(sl, a, b);
-	}*/
 	if (color != 0)
 		ft_pixel_put(sl->img, sl->x, sl->y, color);
 	color = 0;
@@ -58,7 +53,7 @@ void	objects(t_sl *sl)
 		{
 			if (a == sl->a)
 				a = 0;
-			draw_col(sl, a, b);
+			draw_obj(sl, a, b);
 			a++;
 		}
 		b++;

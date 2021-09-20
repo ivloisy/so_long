@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:23:49 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/19 20:19:48 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/19 22:55:05 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	draw_exit(t_sl *sl, int a, int b)
 {
 	int	color;
-	
+
 	if (sl->map[(sl->y / sl->a)][sl->x / sl->a] == 'E'
 			&& get_pixel(&sl->tex[7], a / (sl->a / sl->tex[7].w), b
 			/ (sl->a / sl->tex[7].h)) != 0)

@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:29:22 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/16 04:02:49 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/20 04:48:43 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ static int	check_c(t_sl *sl, int i, int j)
 		if (ret != SUCCESS)
 			return (sl->error);
 	}
-/*	if (sl->col < 1 || sl->exit < 1)
-		return (sl->error = NB_COE_ERROR);*/
 	return (SUCCESS);
 }
 

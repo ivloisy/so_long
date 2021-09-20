@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:26:58 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/19 21:38:14 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/20 05:47:05 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <limits.h>
-# include <math.h>
 
 typedef struct s_pos
 {
@@ -63,6 +62,8 @@ typedef struct s_sl
 	int		x;
 	int		y;
 	t_img	*obj;
+	int		count;
+	int		move;
 }t_sl;
 
 typedef enum e_error
@@ -79,36 +80,22 @@ typedef enum e_error
 	MLX_ERROR,
 	TEX_ERROR,
 	IMG_ERROR
-/*	FLAG_ERROR,
-	NOT_VALID_FILE_ERROR,
-	NOT_VALID_R_ERROR,
-	NOT_VALID_NO_ERROR,
-	NOT_VALID_SO_ERROR,
-	NOT_VALID_WE_ERROR,
-	NOT_VALID_EA_ERROR,
-	NOT_VALID_S_ERROR,
-	NOT_VALID_F_ERROR,
-	NOT_VALID_F_C_ERROR,
-	NOT_VALID_F_P_ERROR,
-	NOT_VALID_C_ERROR,
-	NOT_VALID_C_C_ERROR,
-	NOT_VALID_C_P_ERROR,
-	NB_PLAY_ERROR,
-	TEX_F_ERROR,
-	TEX_C_ERROR*/
 }t_error;
 
 void	exit_error(t_sl *sl);
 int		check_map(t_sl *sl);
 int		launch(t_sl *sl);
 int		textures(t_sl *sl);
-int		ft_close(int keycode, t_sl sl);
-int		display(t_sl *sl);
+int		ft_close(t_sl sl);
 void	ft_pixel_put(t_img *img, int x, int y, int color);
 t_img	*new_image(t_sl *sl, int x, int y);
 void	free_img(t_sl *sl, t_img *img);
 int		get_pixel(t_img *img, int x, int y);
 void	background(t_sl *sl);
 void	objects(t_sl *sl);
+void	move_up(t_sl *sl);
+void	move_down(t_sl *sl);
+void	move_right(t_sl *sl);
+void	move_left(t_sl *sl);
 
 #endif
