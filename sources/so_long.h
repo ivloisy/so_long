@@ -6,14 +6,14 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:26:58 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/20 05:47:05 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/21 06:23:34 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "../minilibx/mlx.h"
 # include "../libft/libft.h"
 # include "./get_next_line.h"
 # include <fcntl.h>

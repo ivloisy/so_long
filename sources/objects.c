@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 21:15:51 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/19 22:54:40 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/21 06:25:12 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	draw_obj(t_sl *sl, int a, int b)
 {
 	int	color;
 
+	color = 0;
 	if (sl->map[sl->y / sl->a][sl->x / sl->a] == 'C')
 		color = get_pixel(&sl->tex[8], a / (sl->a / sl->tex[8].w), b
 				/ (sl->a / sl->tex[8].h));

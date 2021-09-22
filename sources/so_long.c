@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 16:34:18 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/20 03:36:28 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/21 22:59:07 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ int	main(int ac, char **av)
 	sl.error = launch(&sl);
 	if (sl.error != SUCCESS)
 		exit_error(&sl);
-	system("leaks so_long");
+	system("leaks so_long");//
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 19:15:36 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/20 05:45:41 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/22 02:05:52 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	display(t_sl *sl)
 		return (sl->error = IMG_ERROR);
 	background(sl);
 	objects(sl);
+	if (sl->pexit == 1 && sl->count == sl->col)
+		exit_error(sl);
 	return (SUCCESS);
 }
 
@@ -50,7 +52,7 @@ int	launch(t_sl *sl)
 	if (sl->error != SUCCESS)
 		return (sl->error);
 	sl->pdir = 9;
-	sl->a = 32;
+	sl->a = 64;
 	sl->w = ft_strlen(sl->map[1]) * sl->a;
 	sl->h = sl->dim.y * sl->a;
 	sl->win = mlx_new_window(sl->ptr, sl->w, sl->h, "so_long");

@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 02:52:35 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/13 04:41:50 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/22 08:10:31 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,22 @@ static int	read_buf(int fd, char **str)
 		}
 		free((*str));
 		(*str) = tmp;
-		if (ret < 1)
-			break ;
 		if (ft_strchr((*str), '\n'))
 			break ;
 	}
 	return (ret);
 }
 
-static void	ft_free(char *s)
-{
-	free(s);
-	s = NULL;
-}
-
 int	get_next_line(int fd, char **line)
 {
-	int			ret;
 	static char	*str[_SC_OPEN_MAX];
 	char		*tmp;
 
 	if (fd < 0 || !line || BUFFER_SIZE < 1 || read(fd, NULL, 0) == -1)
 		return (-1);
 	if (!(ft_strchr(str[fd], '\n')))
-	{
-		ret = read_buf(fd, &str[fd]);
-		if (ret == -1)
+		if (read_buf(fd, &str[fd]) == -1)
 			return (-1);
-	}
 	if (str[fd])
 		(*line) = ft_substr(str[fd], 0, len_line(str[fd]));
 	else
@@ -83,6 +71,7 @@ int	get_next_line(int fd, char **line)
 		str[fd] = tmp;
 		return (1);
 	}
-	ft_free(str[fd]);
+	free(str[fd]);
+	str[fd] = NULL;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:20:12 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/20 05:46:43 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/22 08:13:57 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	exit_error(t_sl *sl)
 	if (sl->error == BASIC_ERROR)
 		perror("Error\nerrno ");
 	system("leaks so_long");///
-	exit(EXIT_FAILURE);
+	if (sl->error != NO_ERROR)
+		exit(EXIT_FAILURE);
+	else
+		exit(EXIT_SUCCESS);
 }
 
 int	ft_close(t_sl sl)

@@ -6,16 +6,17 @@
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 16:23:49 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/19 22:55:05 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/09/21 07:29:37 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	draw_exit(t_sl *sl, int a, int b)
+static int	draw_exit(t_sl *sl, int a, int b, int c)
 {
 	int	color;
 
+	color = c;
 	if (sl->map[(sl->y / sl->a)][sl->x / sl->a] == 'E'
 			&& get_pixel(&sl->tex[7], a / (sl->a / sl->tex[7].w), b
 			/ (sl->a / sl->tex[7].h)) != 0)
@@ -64,7 +65,7 @@ static void	draw_wall(t_sl *sl, int a, int b)
 	else
 	{
 		color = draw_bath(sl, a, b);
-		color = draw_exit(sl, a, b);
+		color = draw_exit(sl, a, b, color);
 	}
 	if (color != 0)
 		ft_pixel_put(sl->img, sl->x, sl->y, color);
