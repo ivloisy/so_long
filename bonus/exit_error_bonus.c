@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   exit_error_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 19:20:12 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/11/28 16:58:03 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:07:38 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	put_error(int x)
 {
@@ -43,10 +43,13 @@ void	exit_error(t_sl *sl)
 			ft_putstr_fd("Error\n", 1);
 			ft_putnbr_fd(sl->error, 1);
 			ft_putstr_fd(" : ", 1);
+			ft_putchar_fd('\n', 1);
 		}
 		if (sl->error > 2)
+		{
 			put_error(sl->error);
-		ft_putchar_fd('\n', 1);
+			ft_putchar_fd('\n', 1);
+		}
 	}
 	if (sl->error == BASIC_ERROR)
 		perror("Error\nerrno ");

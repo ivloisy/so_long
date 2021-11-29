@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launch.c                                           :+:      :+:    :+:   */
+/*   launch_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 19:15:36 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/11/28 16:57:29 by ivloisy          ###   ########.fr       */
+/*   Updated: 2021/11/28 17:11:22 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	keypress(int keycode, t_sl *sl)
 {
@@ -35,6 +35,8 @@ static int	display(t_sl *sl)
 		return (sl->error = IMG_ERROR);
 	background(sl);
 	objects(sl);
+	mlx_string_put(sl->ptr, sl->win, 10, 15, 0x9b8143, "MOVES :");
+	mlx_string_put(sl->ptr, sl->win, 10, 30, 0x9b8143, ft_itoa(sl->move));
 	if (sl->pexit == 1 && sl->count == sl->col)
 		exit_error(sl);
 	return (SUCCESS);

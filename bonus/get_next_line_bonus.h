@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pixel_put.c                                     :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivloisy <ivloisy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 04:18:02 by ivloisy           #+#    #+#             */
-/*   Updated: 2021/09/17 04:18:41 by ivloisy          ###   ########.fr       */
+/*   Created: 2019/11/15 02:54:25 by ivloisy           #+#    #+#             */
+/*   Updated: 2021/11/22 19:12:09 by ivloisy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-void	ft_pixel_put(t_img *img, int x, int y, int color)
-{
-	char	*dst;
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+# include <limits.h>
+# include <stdlib.h>
+# include <string.h>
+# include "../libft/libft.h"
 
-	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
-	*(unsigned int*)dst = color;
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+int		get_next_line(int fd, char **line);
+
+#endif
